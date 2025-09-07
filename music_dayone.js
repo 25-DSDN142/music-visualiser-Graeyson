@@ -1,19 +1,207 @@
-let sunY = 350;
-let sunSize;
+let dropSize;
+let angle = 110;     
+let speed = 1; 
+angleMode(DEGREES);
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-    background(20)
-    sunSize = map(drum, 0, 100, 50, 400);
-
-    fill(255, 255, 0); //yellow
-
-    ellipse(300, sunY, sunSize);
+    background(2, 19, 77);
+    let dropHue = map(drum, 0, 100, 0, 360);
+    let lightHue = map(bass, 0, 100, 40, 130);
     
-    
-    if(sunY > 1000){
-        sunY=0
-    }
 
-    
+
+
+    //Background of stage
+    noStroke();
+    fill(44, 74, 48);
+    rect(0, 500, 1500, 500);
+
+
+    noStroke();
+    fill(dropHue, 35, 100); //yellow
+    rect(100, 80, 880, 320);
+
+
+    //stagefloor
+    noStroke(); //left edge
+    fill(70, 78, 82);
+    triangle(100, 400, 10, 600, 100, 600);
+
+    noStroke(); //right edge
+    fill(70, 78, 82);
+    triangle(980, 400, 1070, 600, 980, 600);
+
+    noStroke();
+    fill(70, 78, 82);
+    rect(100, 400, 880, 200);
+
+    noStroke();
+    fill(35, 37, 38);
+    rect(10, 600, 1060, 100);
+
+    //metal framing left
+    beginShape();
+    fill(152, 156, 158);
+    vertex(10, 600);
+    vertex(50, 550);
+    vertex(10, 500);
+    vertex(50, 450);
+    vertex(10, 400);
+    vertex(50, 350);
+    vertex(10, 300);
+    vertex(50, 250);
+    vertex(10, 200);
+    vertex(50, 150);
+    vertex(70, 150);
+    vertex(30, 200);
+    vertex(70, 250);
+    vertex(30, 300);
+    vertex(70, 350);
+    vertex(30, 400);
+    vertex(70, 450);
+    vertex(30, 500);
+    vertex(70, 550);
+    vertex(30, 600);
+    endShape(CLOSE);
+
+    //metal framing right
+    beginShape();
+    fill(152, 156, 158);
+    vertex(1070, 600);
+    vertex(1030, 550);
+    vertex(1070, 500);
+    vertex(1030, 450);
+    vertex(1070, 400);
+    vertex(1030, 350);
+    vertex(1070, 300);
+    vertex(1030, 250);
+    vertex(1070, 200);
+    vertex(1030, 150);
+    vertex(1010, 150);
+    vertex(1050, 200);
+    vertex(1010, 250);
+    vertex(1050, 300);
+    vertex(1010, 350);
+    vertex(1050, 400);
+    vertex(1010, 450);
+    vertex(1050, 500);
+    vertex(1010, 550);
+    vertex(1050, 600);
+    endShape(CLOSE);
+
+    //metal framework
+    noStroke();
+    fill(152, 156, 158);
+    rect(10, 150, 15, 450);
+    rect(55, 150, 15, 450)
+    rect(1055, 150, 15, 450);
+    rect(1010, 150, 15, 450);
+    rect(10, 110, 1060, 50);
+
+    //roof
+    noStroke();
+    fill(152, 156, 158);
+    triangle(100, 80, 10, 110, 100, 110);
+    triangle(980, 80, 1070, 110, 980, 110);
+    rect(100, 80, 880, 30);
+
+      // display "words"
+
+      fill(255, 10, 239);
+      textAlign(CENTER);
+      textFont('Tahoma');
+  
+      
+      for (let i = 10; i > 0; i--) {
+          fill(255, 10, 239, 20); 
+          textSize(vocal + i); 
+          text(words, width / 2, height / 3);
+      }
+  
+      // Draw main text (sharp)
+      fill(255, 10, 239);
+      textSize(vocal);
+      text(words, width / 2, height / 3);
+  
+  
+
+    //light 1
+    push();
+    translate(130, 160); 
+    rotate(angle);
+    beginShape();
+    fill(lightHue, lightHue*3, lightHue*5, 150);
+    vertex(0, 0);
+    vertex(-80, -500);
+    vertex(80, -500);
+    endShape(CLOSE);
+    fill(53, 56, 53); 
+    ellipse(0, 0, 30);
+    rect(-15, 0, 30, -30)
+    pop();
+
+     //light 2
+     push();
+     translate(270, 160); 
+     rotate(angle);
+     beginShape();
+     fill(lightHue, lightHue*2, lightHue / 7, 150);
+     vertex(0, 0);
+     vertex(-80, -500);
+     vertex(80, -500);
+     endShape(CLOSE);
+     fill(53, 56, 53); 
+     ellipse(0, 0, 30);
+     rect(-15, 0, 30, -30)
+     pop();
+
+     //light 3
+    push();
+    translate(830, 160); 
+    rotate(angle);
+    beginShape();
+    fill(lightHue, lightHue, lightHue*5, 150);
+    vertex(0, 0);
+    vertex(-80, -500);
+    vertex(80, -500);
+    endShape(CLOSE);
+    fill(53, 56, 53); 
+    ellipse(0, 0, 30);
+    rect(-15, 0, 30, -30)
+    pop();
+
+     //light 4
+     push();
+     translate(970, 160); 
+     rotate(angle);
+     beginShape();
+     fill(lightHue*5, lightHue, lightHue , 150);
+     vertex(0, 0);
+     vertex(-80, -500);
+     vertex(80, -500);
+     endShape(CLOSE);
+     fill(53, 56, 53); 
+     ellipse(0, 0, 30);
+     rect(-15, 0, 30, -30)
+     pop();
+
+     
+  angle += speed;
+
+  
+  if (angle > 250 || angle < 110) {
+    speed *= -1; 
+  }
+
+
+  push();
+  translate(100, 100);
+  fill(20, 20, 19);
+  ellipse(20, 0, 30)
+  rect(0, 20, 40, 80, 20, 20, 0, 0);
+  pop();
+
+
+  
 }
