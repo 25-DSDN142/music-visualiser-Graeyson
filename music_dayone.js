@@ -8,6 +8,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     background(2, 19, 77);
     let dropHue = map(drum, 0, 100, 0, 360);
     let lightHue = map(bass, 0, 100, 40, 130);
+    let brightBeat = map(other, 0, 100, 20, 100);
 
 
     //Background of stage
@@ -21,15 +22,15 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     //leaf 1
     push();
     translate(200, 200);
-    rotate(173);
-    fill(34, 139, 34);
+    rotate(172);
+    fill(78, 154, 81);
     stroke(101, 67, 33);
     strokeWeight(4);
     line(0, 0, 0, 30);
 
     // Draw leaf
     noStroke();
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(0, 100);
     strokeWeight(1);
     beginShape();
@@ -44,14 +45,14 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     push();
     translate(400, 300);
     rotate(62);
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(101, 67, 33);
     strokeWeight(4);
     line(0, 0, 0, 30);
 
     // Draw leaf
     noStroke();
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(0, 100);
     strokeWeight(1);
     beginShape();
@@ -66,14 +67,14 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     push();
     translate(370, 175);
     rotate(285);
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(101, 67, 33);
     strokeWeight(4);
     line(0, 0, 0, 30);
 
     // Draw leaf
     noStroke();
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(0, 100);
     strokeWeight(1);
     beginShape();
@@ -88,14 +89,14 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     push();
     translate(600, 175);
     rotate(194);
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(101, 67, 33);
     strokeWeight(4);
     line(0, 0, 0, 30);
 
     // Draw leaf
     noStroke();
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(0, 100);
     strokeWeight(1);
     beginShape();
@@ -110,14 +111,14 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     push();
     translate(750, 300);
     rotate(0);
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(101, 67, 33);
     strokeWeight(4);
     line(0, 0, 0, 30);
 
     // Draw leaf
     noStroke();
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(0, 100);
     strokeWeight(1);
     beginShape();
@@ -132,14 +133,14 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     push();
     translate(950, 250);
     rotate(300);
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(101, 67, 33);
     strokeWeight(4);
     line(0, 0, 0, 30);
 
     // Draw leaf
     noStroke();
-    fill(34, 139, 34);
+    fill(78, 154, 81);
     stroke(0, 100);
     strokeWeight(1);
     beginShape();
@@ -151,25 +152,26 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     pop();
 
 
+
     //reactive backdrop
     noStroke();
     fill(44, 74, 48);
     rect(0, 500, 1500, 500);
-    fill(201, 35, dropHue, 90);
+    fill(44, 74, dropHue, 90);
     rect(100, 80, 880, 320);
 
 
     //stagefloor
     noStroke(); //left edge
-    fill(70, 78, 82);
+    fill(43, 43, 43);
     triangle(100, 400, 10, 600, 100, 600);
 
     noStroke(); //right edge
-    fill(70, 78, 82);
+    fill(43, 43, 43);
     triangle(980, 400, 1070, 600, 980, 600);
 
     noStroke();
-    fill(70, 78, 82);
+    fill(43, 43, 43);
     rect(100, 400, 880, 200);
 
     noStroke();
@@ -178,7 +180,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
     //metal framing left
     beginShape();
-    fill(152, 156, 158);
+    fill(158, 158, 158);
     vertex(10, 600);
     vertex(50, 550);
     vertex(10, 500);
@@ -203,7 +205,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
     //metal framing right
     beginShape();
-    fill(152, 156, 158);
+    fill(158, 158, 158);
     vertex(1070, 600);
     vertex(1030, 550);
     vertex(1070, 500);
@@ -228,7 +230,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
     //metal framework
     noStroke();
-    fill(152, 156, 158);
+    fill(158, 158, 158);
     rect(10, 150, 15, 450);
     rect(55, 150, 15, 450)
     rect(1055, 150, 15, 450);
@@ -244,19 +246,19 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
     // display "words"
 
-    fill(236, 252, 109);
+    fill(245, 242, 231);
     textAlign(CENTER);
     textFont('Tahoma');
 
 
     for (let i = 10; i > 0; i--) {
-        fill(236, 252, 109, 20);
+        fill(245, 242, 231, 20);
         textSize(vocal + i);
         text(words, width / 2, height / 3);
     }
 
     // Draw main text (sharp)
-    fill(236, 252, 109);
+    fill(245, 242, 231);
     textSize(vocal);
     text(words, width / 2, height / 3);
 
@@ -267,7 +269,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     translate(130, 160);
     rotate(angle);
     beginShape();
-    fill(lightHue, lightHue * 3, lightHue * 5, 150);
+    fill(255, 214, lightHue * 5, 220);
     vertex(0, 0);
     vertex(-80, -500);
     vertex(80, -500);
@@ -282,7 +284,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     translate(270, 160);
     rotate(angle);
     beginShape();
-    fill(lightHue, lightHue * 2, lightHue / 7, 150);
+    fill(60, 145, lightHue / 7, 220);
     vertex(0, 0);
     vertex(-80, -500);
     vertex(80, -500);
@@ -297,7 +299,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     translate(830, 160);
     rotate(angle);
     beginShape();
-    fill(lightHue, lightHue, lightHue * 5, 150);
+    fill(60, 145, lightHue * 5, 220);
     vertex(0, 0);
     vertex(-80, -500);
     vertex(80, -500);
@@ -312,7 +314,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     translate(970, 160);
     rotate(angle);
     beginShape();
-    fill(lightHue * 5, lightHue, lightHue, 150);
+    fill(255, 214, lightHue, 220);
     vertex(0, 0);
     vertex(-80, -500);
     vertex(80, -500);
@@ -329,5 +331,11 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     if (angle > 250 || angle < 110) {
         speed *= -1;
     }
+
+    //colour overlay
+    fill(dropHue + 100, dropHue / 2, dropHue * 4, brightBeat);
+    rect(0, 0, 1100, 800);
+
+
 
 }
