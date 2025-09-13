@@ -8,7 +8,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     background('black');
     let dropHue = map(drum, 0, 100, 0, 360);
     let lightHue = map(bass, 0, 100, 40, 130);
-    let brightBeat = map(other, 0, 100, 20, 360);
+    let brightBeat = map(other, 0, 100, 20, 100);
 
 
     //Background of stage
@@ -157,7 +157,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     noStroke();
     fill('lightgrey');
     rect(0, 500, 1500, 500);
-    fill(44, 74, brightBeat, 90);
+    fill(44, 74, dropHue, 90);
     rect(100, 80, 880, 320);
 
 
@@ -179,7 +179,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     rect(10, 600, 1060, 100);
 
     //metal framing left
-    beginShape()
+    beginShape();
     fill(158, 158, 158);
     vertex(10, 600);
     vertex(50, 550);
