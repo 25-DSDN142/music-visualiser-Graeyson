@@ -63,28 +63,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     endShape(CLOSE);
     pop();
 
-    //leaf 3
-    push();
-    translate(370, 175);
-    rotate(285);
-    fill(78, 154, 81);
-    stroke(101, 67, 33);
-    strokeWeight(4);
-    line(0, 0, 0, 30);
-
-    // Draw leaf
-    noStroke();
-    fill(78, 154, 81);
-    stroke(0, 100);
-    strokeWeight(1);
-    beginShape();
-    vertex(0, 0);
-    vertex(-90, -30);
-    vertex(0, -120);
-    vertex(90, -30);
-    endShape(CLOSE);
-    pop();
-
     //leaf 4
     push();
     translate(600, 175);
@@ -129,27 +107,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     endShape(CLOSE);
     pop();
 
-    //leaf 6
-    push();
-    translate(950, 250);
-    rotate(300);
-    fill(78, 154, 81);
-    stroke(101, 67, 33);
-    strokeWeight(4);
-    line(0, 0, 0, 30);
-
-    // Draw leaf
-    noStroke();
-    fill(78, 154, 81);
-    stroke(0, 100);
-    strokeWeight(1);
-    beginShape();
-    vertex(0, 0);
-    vertex(-90, -30);
-    vertex(0, -120);
-    vertex(90, -30);
-    endShape(CLOSE);
-    pop();
 
 
 
@@ -179,7 +136,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     rect(10, 600, 1060, 100);
 
     //metal framing left
-    beginShape();
+    beginShape()
     fill(158, 158, 158);
     vertex(10, 600);
     vertex(50, 550);
@@ -258,7 +215,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     }
 
     // Draw main text (sharp)
-    fill(245, 242, 231);
+    fill('yellow');
     textSize(vocal);
     text(words, width / 2, height / 3);
 
