@@ -5,7 +5,7 @@ angleMode(DEGREES);
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-    background(2, 19, 77);
+    background('black');
     let dropHue = map(drum, 0, 100, 0, 360);
     let lightHue = map(bass, 0, 100, 40, 130);
     let brightBeat = map(other, 0, 100, 20, 100);
@@ -155,7 +155,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
     //reactive backdrop
     noStroke();
-    fill(44, 74, 48);
+    fill('lightgrey');
     rect(0, 500, 1500, 500);
     fill(44, 74, dropHue, 90);
     rect(100, 80, 880, 320);
@@ -239,7 +239,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
     //roof
     noStroke();
-    fill(152, 156, 158);
+    fill(112, 112, 112);
     triangle(100, 80, 10, 110, 100, 110);
     triangle(980, 80, 1070, 110, 980, 110);
     rect(100, 80, 880, 30);
@@ -269,7 +269,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     translate(130, 160);
     rotate(angle);
     beginShape();
-    fill(255, 214, lightHue * 5, 220);
+    fill(255, 214, lightHue * 5, lightHue + 70);
     vertex(0, 0);
     vertex(-80, -500);
     vertex(80, -500);
@@ -284,7 +284,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     translate(270, 160);
     rotate(angle);
     beginShape();
-    fill(60, 145, lightHue / 7, 220);
+    fill(60, 145, lightHue / 7, lightHue  + 70);
     vertex(0, 0);
     vertex(-80, -500);
     vertex(80, -500);
@@ -299,7 +299,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     translate(830, 160);
     rotate(angle);
     beginShape();
-    fill(60, 145, lightHue * 5, 220);
+    fill(60, 145, lightHue * 5, lightHue  + 70);
     vertex(0, 0);
     vertex(-80, -500);
     vertex(80, -500);
@@ -314,7 +314,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     translate(970, 160);
     rotate(angle);
     beginShape();
-    fill(255, 214, lightHue, 220);
+    fill(255, 214, lightHue, lightHue + 70);
     vertex(0, 0);
     vertex(-80, -500);
     vertex(80, -500);
@@ -331,10 +331,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     if (angle > 250 || angle < 110) {
         speed *= -1;
     }
-
-    //colour overlay
-    fill(dropHue + 100, dropHue / 2, dropHue * 4, brightBeat);
-    rect(0, 0, 1100, 800);
 
 
 
